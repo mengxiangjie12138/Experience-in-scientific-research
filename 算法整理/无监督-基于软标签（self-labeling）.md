@@ -39,9 +39,20 @@
 
 <img src="http://mengxiangjie12138-images.oss-cn-beijing.aliyuncs.com/SwAV-z_t.png" alt="SwAV-z" style="zoom:5%;" />
 
-- 
+- 在原始网络之后添加一全连接层，输入为features，权重为C，输出为features与C之间的相似程度p-t和p-s（与DEC的聚类层相似），计算公式如下
 
+<img src="http://mengxiangjie12138-images.oss-cn-beijing.aliyuncs.com/SwAV-p.png" alt="p" style="zoom:10%;" />
 
+- 在原始网络之后再添加一平行全连接分类器，通过features得到概率分布q-t和q-s
+- 交叉计算pq之间的交叉熵损失
+
+<img src="http://mengxiangjie12138-images.oss-cn-beijing.aliyuncs.com/SwAV-loss1.png" alt="loss1" style="zoom:15%;" />
+
+- 最大化目标函数，通过Tr（矩阵的迹）的计算最大化features和C之间的相似程度，并通过H（熵）的计算让各个预测类别的数量趋于均衡，避免退化解
+
+<img src="http://mengxiangjie12138-images.oss-cn-beijing.aliyuncs.com/SwAV-object-fun.png" alt="Object-fun" style="zoom:10%;" />
+
+![SwAV-method](http://mengxiangjie12138-images.oss-cn-beijing.aliyuncs.com/SwAV-method.jpg)
 
 
 
