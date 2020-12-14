@@ -1,6 +1,6 @@
 # 无监督-基于软标签
 
-### 1.Deep Clustering for Unsupervised Learning of Visual Features  2019arxiv
+### 1.Deep Clustering for Unsupervised Learning of Visual Features  arxiv2019
 
 - 原始图片x传入特征提取器得到features，该features分别传入聚类部分和分类部分
 - 聚类部分：将features经过kmeans聚类得到类别的指派作为软标签（Y）
